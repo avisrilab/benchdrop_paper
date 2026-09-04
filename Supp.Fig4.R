@@ -1,121 +1,38 @@
-# Supplementary Figure 4
-
-# Load packages
-library(Seurat)
-library(Matrix)
-library(R.utils)
-library(Matrix.utils)
-library(ggplot2)
+# Supp. Figure 4: panel S4A. Inputs: LR.PBMC.S3.rds, quant.sf, masiso/iso/
+script.dir <- dirname(sub("--file=", "", grep("--file=", commandArgs(), value = TRUE)))
+source(file.path(if (length(script.dir)) script.dir else ".", "utils.R"))
 library(patchwork)
-library(Rsamtools)
-library(reshape2)
-library(dplyr)
-library(tidyr)
 
-#### SUPP FIG. 4A ####
-source("source.R")
+lr.pbmc <- readRDS("LR.PBMC.S3.rds")
+lr.tpm <- pseudobulk(lr.pbmc, assay = "transcript", cpm = TRUE)
 
-{
-  ## LOAD SR DATA
-  sr.pip <- GetObject("sr.pbmc.sens3")
-  sr.tenx <- GetObject("sr.pbmc.10x")
-  sr <- Getcpm(sr.tenx)
-  # sr.alevin <- GetObject("sr.pbmc.alevin")
-  # sr <- Getcpm(sr.alevin)
-  
-  ## LOAD LR DATA
-  lr.masiso <- GetObject("lr.pbmc.masiso")
-  lr <- GetObject("lr.pbmc.95")
-  lr <- subset(lr, cells = Cells(sr.pip))
-  lr <- NormalizeData(lr, normalization.method = "LogNormalize")
-  lr <- Gettpm(lr, kind = "lr")
-  
-  ## LOAD BULK DATA
-  bulk <- GetObject("bulk.pbmc")
-  bulk <- Gettpm(bulk, kind = "bulk")
-}
+bulk <- read.table("quant.sf", header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+bulk.tpm <- setNames(bulk$TPM, bulk$Name)
 
-{ ## GENE-LEVEL ANALYSES
-  keep.genes <- intersect(
-    intersect(names(lr$cpm), 
-              names(sr)), 
-    names(bulk$cpm))
-  length(keep.genes)
-  
-  df <- data.frame(
-    "long" = lr$cpm[keep.genes],
-    "short" = sr[keep.genes],
-    "bulk" = bulk$cpm[keep.genes]
-  )
-  cor(df, method = "spearman")
-  df <- FillGeneMetadata(df)
-  
-  df$fc <- log((df$short + 1) / (df$long + 1))
-  df <- df[order(df$fc),]
-  
-  sdf <- df#[df$type == "protein_coding",]
-  sdf$gname <- rownames(sdf)
-  sdf$sfc <- log10((sdf$short + 1) / (sdf$bulk + 1))
-  sdf$lfc <- log10((sdf$long + 1) / (sdf$bulk + 1))
-  
-  # Remove duplicate rows
-  sdf <- sdf[!duplicated(sdf), ]
-}
+masiso <- NormalizeData(CreateSeuratObject(Read10X("masiso/iso", gene.column = 1)), verbose = FALSE)
+masiso.tpm <- pseudobulk(masiso, cpm = TRUE)
+names(masiso.tpm) <- sub("\\..*$", "", names(masiso.tpm))
 
-{  # txp level analyses
-  lr.masiso <- GetObject("lr.pbmc.masiso")
-  
-  keep.txps <- intersect(names(lr$tpm), names(bulk$tpm))
-  keep.txps <- intersect(keep.txps, names(lr.masiso$txp))
-  length(keep.txps)
-  
-  tdf <- data.frame(
-    "masiso" = 0,
-    "long" = lr$tpm[keep.txps],
-    "bulk" = bulk$tpm[keep.txps]
-  )
-  dim(tdf)
-  
-  keep.txps.masiso <- intersect(keep.txps, names(lr.masiso$txp))
-  tdf[keep.txps.masiso, "masiso"] <- lr.masiso$txp[keep.txps.masiso]
-  tdf$masiso <- tdf$masiso*1000000/sum(tdf$masiso)
-  cor(tdf, method = "spearman") #0.555239
-  
-  tdf <- FillTxpMetadata(tdf)
-  head(tdf)
-  
-  cor(tdf[tdf$type == "protein_coding",c(1,2)], 
-      method = "spearman") #0.517608
-  
-  # tdf$fc <- log((tdf$bulk + 0.1) / (tdf$long + 0.1))
-  
-  # tdf$lfc <- log((tdf$long + 0.1) / (tdf$bulk + 0.1))
-  # tdf$mfc <- log((tdf$masiso + 0.1) / (tdf$bulk + 0.1))
-  
-  # tdf <- tdf[order(tdf$fc),]
-  tail(tdf, 20)
-  
-  {
-    sdf <- tdf#[tdf$type == "protein_coding",]
-    sdf$mfc <- log10((sdf$masiso + 1) / (sdf$bulk + 1))
-    sdf$lfc <- log10((sdf$long + 1) / (sdf$bulk + 1))
-    
-    radius <- 0.25 
-    sdf.p1 <- sdf[sqrt(sdf$lfc^2 + sdf$mfc^2) > radius, ]
-    
-    n_txps_total   <- nrow(sdf)
-    n_txps_plotted <- nrow(sdf.p1)
-    n_txps_removed <- n_txps_total - n_txps_plotted
-    
-    cat("UNIQUE transcripts plotted:", n_txps_plotted, "\n")
-    cat("UNIQUE transcripts removed by circle:", n_txps_removed, "\n")
-    
-    p4 <- ggplot(sdf.p1, aes(y=lfc, x=mfc)) +
-      geom_point() +
-      geom_hex(bins = 100) +
-      scale_fill_viridis_c(option = "plasma", trans = "log10") +
-      theme_minimal()
-    ggMarginal(p4, yparams = list(fill = "#5C1A8A", color = "black"),
-               xparams = list(fill = "#D5722A", color = "black")) # Customize x-axis histogram
-  }
-}
+txps <- Reduce(intersect, list(names(lr.tpm), names(bulk.tpm), names(masiso.tpm)))
+df <- data.frame(masiso = masiso.tpm[txps], long = lr.tpm[txps], bulk = bulk.tpm[txps])
+df$masiso <- df$masiso * 1e6 / sum(df$masiso)
+print(cor(df, method = "spearman"))
+df$mfc <- log10((df$masiso + 1) / (df$bulk + 1))
+df$lfc <- log10((df$long + 1) / (df$bulk + 1))
+
+radius <- 0.25
+plotted <- df[sqrt(df$lfc^2 + df$mfc^2) > radius, ]
+message(sprintf("SuppFig4A: N_total = %d transcripts, N_removed = %d transcripts", nrow(df), nrow(df) - nrow(plotted)))
+
+p <- ggplot(plotted, aes(x = mfc, y = lfc)) +
+  geom_point() +
+  geom_hex(bins = 100) +
+  scale_fill_viridis_c(option = "plasma", trans = "log10", name = "count") +
+  labs(x = "Log2FC_1", y = "Log2FC_2") +
+  annotate("label", x = 0.5, y = -4, hjust = 0, size = 5, fontface = "bold",
+           label = sprintf("N_total = %d transcripts\nN_removed = %d transcripts", nrow(df), nrow(df) - nrow(plotted))) +
+  theme_minimal()
+top <- ggplot(plotted, aes(mfc)) + geom_density(fill = "#D5722A", color = "black") + theme_void()
+right <- ggplot(plotted, aes(lfc)) + geom_density(fill = "#5C1A8A", color = "black") + coord_flip() + theme_void()
+save.panel(top + plot_spacer() + p + right + plot_layout(ncol = 2, widths = c(4, 1), heights = c(1, 4)),
+           "SuppFig4A", width = 8, height = 10)

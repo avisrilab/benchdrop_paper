@@ -1,0 +1,1275 @@
+{
+  "R": {
+    "Version": "4.6.1",
+    "Repositories": [
+      {
+        "Name": "CRAN",
+        "URL": "https://cloud.r-project.org"
+      }
+    ]
+  },
+  "Bioconductor": {
+    "Version": "3.23"
+  },
+  "Packages": {
+    "AnnotationDbi": {
+      "Package": "AnnotationDbi",
+      "Version": "1.74.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "AnnotationFilter": {
+      "Package": "AnnotationFilter",
+      "Version": "1.36.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "BH": {
+      "Package": "BH",
+      "Version": "1.90.0-1",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "BSgenome": {
+      "Package": "BSgenome",
+      "Version": "1.80.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "Biobase": {
+      "Package": "Biobase",
+      "Version": "2.72.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "BiocGenerics": {
+      "Package": "BiocGenerics",
+      "Version": "0.58.1",
+      "Source": "Bioconductor",
+      "Repository": "https://bioc-release.r-universe.dev"
+    },
+    "BiocIO": {
+      "Package": "BiocIO",
+      "Version": "1.22.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "BiocManager": {
+      "Package": "BiocManager",
+      "Version": "1.30.27",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "BiocParallel": {
+      "Package": "BiocParallel",
+      "Version": "1.46.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "BiocVersion": {
+      "Package": "BiocVersion",
+      "Version": "3.23.1",
+      "Source": "Bioconductor",
+      "Repository": "https://bioc.r-universe.dev"
+    },
+    "Biostrings": {
+      "Package": "Biostrings",
+      "Version": "2.80.1",
+      "Source": "Bioconductor",
+      "Repository": "https://bioc-release.r-universe.dev"
+    },
+    "DBI": {
+      "Package": "DBI",
+      "Version": "1.3.0",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "DelayedArray": {
+      "Package": "DelayedArray",
+      "Version": "0.38.2",
+      "Source": "Bioconductor",
+      "Repository": "https://bioc-release.r-universe.dev"
+    },
+    "EnsDb.Hsapiens.v86": {
+      "Package": "EnsDb.Hsapiens.v86",
+      "Version": "2.99.0",
+      "Source": "Bioconductor"
+    },
+    "FNN": {
+      "Package": "FNN",
+      "Version": "1.1.4.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "Formula": {
+      "Package": "Formula",
+      "Version": "1.2-6",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "GenomeInfoDb": {
+      "Package": "GenomeInfoDb",
+      "Version": "1.48.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "GenomicAlignments": {
+      "Package": "GenomicAlignments",
+      "Version": "1.48.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "GenomicFeatures": {
+      "Package": "GenomicFeatures",
+      "Version": "1.64.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "GenomicRanges": {
+      "Package": "GenomicRanges",
+      "Version": "1.64.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "Hmisc": {
+      "Package": "Hmisc",
+      "Version": "5.2-6",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "IRanges": {
+      "Package": "IRanges",
+      "Version": "2.46.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "KEGGREST": {
+      "Package": "KEGGREST",
+      "Version": "1.52.2",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "KernSmooth": {
+      "Package": "KernSmooth",
+      "Version": "2.23-26",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "MASS": {
+      "Package": "MASS",
+      "Version": "7.3-65",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "Matrix": {
+      "Package": "Matrix",
+      "Version": "1.7-5",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "Matrix.utils": {
+      "Package": "Matrix.utils",
+      "Version": "0.9.8",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "MatrixGenerics": {
+      "Package": "MatrixGenerics",
+      "Version": "1.24.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "ProtGenerics": {
+      "Package": "ProtGenerics",
+      "Version": "1.44.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "R6": {
+      "Package": "R6",
+      "Version": "2.6.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "RANN": {
+      "Package": "RANN",
+      "Version": "2.6.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "RColorBrewer": {
+      "Package": "RColorBrewer",
+      "Version": "1.1-3",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "RCurl": {
+      "Package": "RCurl",
+      "Version": "1.98-1.19",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "ROCR": {
+      "Package": "ROCR",
+      "Version": "1.0-12",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "RSQLite": {
+      "Package": "RSQLite",
+      "Version": "3.53.3",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "RSpectra": {
+      "Package": "RSpectra",
+      "Version": "0.16-2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "Rcpp": {
+      "Package": "Rcpp",
+      "Version": "1.1.2",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "RcppAnnoy": {
+      "Package": "RcppAnnoy",
+      "Version": "0.0.23",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "RcppArmadillo": {
+      "Package": "RcppArmadillo",
+      "Version": "15.4.2-1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "RcppEigen": {
+      "Package": "RcppEigen",
+      "Version": "0.3.4.0.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "RcppHNSW": {
+      "Package": "RcppHNSW",
+      "Version": "0.7.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "RcppProgress": {
+      "Package": "RcppProgress",
+      "Version": "0.4.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "RcppRoll": {
+      "Package": "RcppRoll",
+      "Version": "0.3.2",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "RcppTOML": {
+      "Package": "RcppTOML",
+      "Version": "0.2.3",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "Rhtslib": {
+      "Package": "Rhtslib",
+      "Version": "3.8.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "Rsamtools": {
+      "Package": "Rsamtools",
+      "Version": "2.28.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "Rtsne": {
+      "Package": "Rtsne",
+      "Version": "0.17",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "S4Arrays": {
+      "Package": "S4Arrays",
+      "Version": "1.12.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "S4Vectors": {
+      "Package": "S4Vectors",
+      "Version": "0.50.1",
+      "Source": "Bioconductor",
+      "Repository": "https://bioc-release.r-universe.dev"
+    },
+    "S7": {
+      "Package": "S7",
+      "Version": "0.2.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "Seqinfo": {
+      "Package": "Seqinfo",
+      "Version": "1.2.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "Seurat": {
+      "Package": "Seurat",
+      "Version": "5.5.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "SeuratObject": {
+      "Package": "SeuratObject",
+      "Version": "5.4.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "Signac": {
+      "Package": "Signac",
+      "Version": "1.17.1",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "SparseArray": {
+      "Package": "SparseArray",
+      "Version": "1.12.2",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "SummarizedExperiment": {
+      "Package": "SummarizedExperiment",
+      "Version": "1.42.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "UCSC.utils": {
+      "Package": "UCSC.utils",
+      "Version": "1.8.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "VariantAnnotation": {
+      "Package": "VariantAnnotation",
+      "Version": "1.58.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "XML": {
+      "Package": "XML",
+      "Version": "3.99-0.23",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "XVector": {
+      "Package": "XVector",
+      "Version": "0.52.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "abind": {
+      "Package": "abind",
+      "Version": "1.4-8",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "askpass": {
+      "Package": "askpass",
+      "Version": "1.2.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "backports": {
+      "Package": "backports",
+      "Version": "1.5.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "base64enc": {
+      "Package": "base64enc",
+      "Version": "0.1-6",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "biovizBase": {
+      "Package": "biovizBase",
+      "Version": "1.60.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "bit": {
+      "Package": "bit",
+      "Version": "4.6.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "bit64": {
+      "Package": "bit64",
+      "Version": "4.8.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "bitops": {
+      "Package": "bitops",
+      "Version": "1.1-0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "blob": {
+      "Package": "blob",
+      "Version": "1.3.0",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "bslib": {
+      "Package": "bslib",
+      "Version": "0.12.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "caTools": {
+      "Package": "caTools",
+      "Version": "1.18.4",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "cachem": {
+      "Package": "cachem",
+      "Version": "1.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "checkmate": {
+      "Package": "checkmate",
+      "Version": "2.3.4",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "cigarillo": {
+      "Package": "cigarillo",
+      "Version": "1.2.1",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "cli": {
+      "Package": "cli",
+      "Version": "3.6.6",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "cluster": {
+      "Package": "cluster",
+      "Version": "2.1.8.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "codetools": {
+      "Package": "codetools",
+      "Version": "0.2-20",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "colorspace": {
+      "Package": "colorspace",
+      "Version": "2.1-3",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "commonmark": {
+      "Package": "commonmark",
+      "Version": "2.0.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "cowplot": {
+      "Package": "cowplot",
+      "Version": "1.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "cpp11": {
+      "Package": "cpp11",
+      "Version": "0.5.5",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "crayon": {
+      "Package": "crayon",
+      "Version": "1.5.3",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "crosstalk": {
+      "Package": "crosstalk",
+      "Version": "1.2.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "curl": {
+      "Package": "curl",
+      "Version": "7.1.0",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "data.table": {
+      "Package": "data.table",
+      "Version": "1.18.4",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "deldir": {
+      "Package": "deldir",
+      "Version": "2.0-4",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "dichromat": {
+      "Package": "dichromat",
+      "Version": "2.0-1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "digest": {
+      "Package": "digest",
+      "Version": "0.6.39",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "dotCall64": {
+      "Package": "dotCall64",
+      "Version": "1.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "dplyr": {
+      "Package": "dplyr",
+      "Version": "1.2.1",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "dqrng": {
+      "Package": "dqrng",
+      "Version": "0.4.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "ensembldb": {
+      "Package": "ensembldb",
+      "Version": "2.36.1",
+      "Source": "Bioconductor",
+      "Repository": "https://bioc-release.r-universe.dev"
+    },
+    "evaluate": {
+      "Package": "evaluate",
+      "Version": "1.0.5",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "farver": {
+      "Package": "farver",
+      "Version": "2.1.2",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "fastDummies": {
+      "Package": "fastDummies",
+      "Version": "1.7.6",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "fastmap": {
+      "Package": "fastmap",
+      "Version": "1.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "fastmatch": {
+      "Package": "fastmatch",
+      "Version": "1.1-8",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "fitdistrplus": {
+      "Package": "fitdistrplus",
+      "Version": "1.2-6",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "fontawesome": {
+      "Package": "fontawesome",
+      "Version": "0.5.3",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "foreign": {
+      "Package": "foreign",
+      "Version": "0.8-91",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "formatR": {
+      "Package": "formatR",
+      "Version": "1.14",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "fs": {
+      "Package": "fs",
+      "Version": "2.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "futile.logger": {
+      "Package": "futile.logger",
+      "Version": "1.4.9",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "futile.options": {
+      "Package": "futile.options",
+      "Version": "1.0.1",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "future": {
+      "Package": "future",
+      "Version": "1.75.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "future.apply": {
+      "Package": "future.apply",
+      "Version": "1.20.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "generics": {
+      "Package": "generics",
+      "Version": "0.1.4",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "ggplot2": {
+      "Package": "ggplot2",
+      "Version": "4.0.3",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "ggrepel": {
+      "Package": "ggrepel",
+      "Version": "0.9.8",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "ggridges": {
+      "Package": "ggridges",
+      "Version": "0.5.7",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "globals": {
+      "Package": "globals",
+      "Version": "0.19.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "glue": {
+      "Package": "glue",
+      "Version": "1.8.1",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "goftest": {
+      "Package": "goftest",
+      "Version": "1.2-3",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "gplots": {
+      "Package": "gplots",
+      "Version": "3.3.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "gridExtra": {
+      "Package": "gridExtra",
+      "Version": "2.3.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "grr": {
+      "Package": "grr",
+      "Version": "0.9.5",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "gtable": {
+      "Package": "gtable",
+      "Version": "0.3.6",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "gtools": {
+      "Package": "gtools",
+      "Version": "3.9.5",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "here": {
+      "Package": "here",
+      "Version": "1.0.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "hexbin": {
+      "Package": "hexbin",
+      "Version": "1.28.6",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "highr": {
+      "Package": "highr",
+      "Version": "0.12",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "htmlTable": {
+      "Package": "htmlTable",
+      "Version": "2.5.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "htmltools": {
+      "Package": "htmltools",
+      "Version": "0.5.9",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "htmlwidgets": {
+      "Package": "htmlwidgets",
+      "Version": "1.6.4",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "httpuv": {
+      "Package": "httpuv",
+      "Version": "1.6.17",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "httr": {
+      "Package": "httr",
+      "Version": "1.4.8",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "ica": {
+      "Package": "ica",
+      "Version": "1.0-3",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "igraph": {
+      "Package": "igraph",
+      "Version": "2.3.3",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "irlba": {
+      "Package": "irlba",
+      "Version": "2.3.7",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "isoband": {
+      "Package": "isoband",
+      "Version": "0.3.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "jquerylib": {
+      "Package": "jquerylib",
+      "Version": "0.1.4",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "jsonlite": {
+      "Package": "jsonlite",
+      "Version": "2.0.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "knitr": {
+      "Package": "knitr",
+      "Version": "1.51",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "labeling": {
+      "Package": "labeling",
+      "Version": "0.4.3",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "lambda.r": {
+      "Package": "lambda.r",
+      "Version": "1.2.4",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "later": {
+      "Package": "later",
+      "Version": "1.4.8",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "lattice": {
+      "Package": "lattice",
+      "Version": "0.22-9",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "lazyeval": {
+      "Package": "lazyeval",
+      "Version": "0.2.3",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "lifecycle": {
+      "Package": "lifecycle",
+      "Version": "1.0.5",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "listenv": {
+      "Package": "listenv",
+      "Version": "1.0.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "lmtest": {
+      "Package": "lmtest",
+      "Version": "0.9-40",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "magrittr": {
+      "Package": "magrittr",
+      "Version": "2.0.5",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "matrixStats": {
+      "Package": "matrixStats",
+      "Version": "1.5.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "memoise": {
+      "Package": "memoise",
+      "Version": "2.0.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "mime": {
+      "Package": "mime",
+      "Version": "0.13",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "miniUI": {
+      "Package": "miniUI",
+      "Version": "0.1.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "nlme": {
+      "Package": "nlme",
+      "Version": "3.1-169",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "nnet": {
+      "Package": "nnet",
+      "Version": "7.3-20",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "openssl": {
+      "Package": "openssl",
+      "Version": "2.4.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "otel": {
+      "Package": "otel",
+      "Version": "0.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "parallelly": {
+      "Package": "parallelly",
+      "Version": "1.48.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "patchwork": {
+      "Package": "patchwork",
+      "Version": "1.3.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "pbapply": {
+      "Package": "pbapply",
+      "Version": "1.7-4",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "pillar": {
+      "Package": "pillar",
+      "Version": "1.11.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "pkgconfig": {
+      "Package": "pkgconfig",
+      "Version": "2.0.3",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "plotly": {
+      "Package": "plotly",
+      "Version": "4.12.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "plyr": {
+      "Package": "plyr",
+      "Version": "1.8.9",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "png": {
+      "Package": "png",
+      "Version": "0.1-9",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "polyclip": {
+      "Package": "polyclip",
+      "Version": "1.10-7",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "progressr": {
+      "Package": "progressr",
+      "Version": "1.0.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "promises": {
+      "Package": "promises",
+      "Version": "1.5.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "purrr": {
+      "Package": "purrr",
+      "Version": "1.2.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "rappdirs": {
+      "Package": "rappdirs",
+      "Version": "0.3.4",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "reshape2": {
+      "Package": "reshape2",
+      "Version": "1.4.5",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "restfulr": {
+      "Package": "restfulr",
+      "Version": "0.0.17",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "reticulate": {
+      "Package": "reticulate",
+      "Version": "1.46.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "rjson": {
+      "Package": "rjson",
+      "Version": "0.2.23",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "rlang": {
+      "Package": "rlang",
+      "Version": "1.3.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "rmarkdown": {
+      "Package": "rmarkdown",
+      "Version": "2.31",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "rpart": {
+      "Package": "rpart",
+      "Version": "4.1.27",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "rprojroot": {
+      "Package": "rprojroot",
+      "Version": "2.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "rstudioapi": {
+      "Package": "rstudioapi",
+      "Version": "0.19.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "rtracklayer": {
+      "Package": "rtracklayer",
+      "Version": "1.72.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "sass": {
+      "Package": "sass",
+      "Version": "0.4.10",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "scales": {
+      "Package": "scales",
+      "Version": "1.4.0",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "scattermore": {
+      "Package": "scattermore",
+      "Version": "1.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "sctransform": {
+      "Package": "sctransform",
+      "Version": "0.4.3",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "shiny": {
+      "Package": "shiny",
+      "Version": "1.14.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "sitmo": {
+      "Package": "sitmo",
+      "Version": "2.0.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "snow": {
+      "Package": "snow",
+      "Version": "0.4-4",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "sourcetools": {
+      "Package": "sourcetools",
+      "Version": "0.1.7-2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "sp": {
+      "Package": "sp",
+      "Version": "2.2-3",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "spam": {
+      "Package": "spam",
+      "Version": "2.11-4",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "sparseMatrixStats": {
+      "Package": "sparseMatrixStats",
+      "Version": "1.24.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.23"
+    },
+    "spatstat.data": {
+      "Package": "spatstat.data",
+      "Version": "3.1-9",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "spatstat.explore": {
+      "Package": "spatstat.explore",
+      "Version": "3.8-2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "spatstat.geom": {
+      "Package": "spatstat.geom",
+      "Version": "3.8-2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "spatstat.random": {
+      "Package": "spatstat.random",
+      "Version": "3.5-1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "spatstat.sparse": {
+      "Package": "spatstat.sparse",
+      "Version": "3.2-0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "spatstat.univar": {
+      "Package": "spatstat.univar",
+      "Version": "3.2-0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "spatstat.utils": {
+      "Package": "spatstat.utils",
+      "Version": "3.2-4",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "stringi": {
+      "Package": "stringi",
+      "Version": "1.8.9",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "stringr": {
+      "Package": "stringr",
+      "Version": "1.6.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "survival": {
+      "Package": "survival",
+      "Version": "3.8-6",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "sys": {
+      "Package": "sys",
+      "Version": "3.4.3",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "tensor": {
+      "Package": "tensor",
+      "Version": "1.5.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "tibble": {
+      "Package": "tibble",
+      "Version": "3.3.1",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "tidyr": {
+      "Package": "tidyr",
+      "Version": "1.3.2",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "tidyselect": {
+      "Package": "tidyselect",
+      "Version": "1.2.1",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "tinytex": {
+      "Package": "tinytex",
+      "Version": "0.60",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "utf8": {
+      "Package": "utf8",
+      "Version": "1.2.6",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "uwot": {
+      "Package": "uwot",
+      "Version": "0.2.4",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "vctrs": {
+      "Package": "vctrs",
+      "Version": "0.7.3",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "viridis": {
+      "Package": "viridis",
+      "Version": "0.6.5",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "viridisLite": {
+      "Package": "viridisLite",
+      "Version": "0.4.3",
+      "Source": "Repository",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
+    "withr": {
+      "Package": "withr",
+      "Version": "3.0.3",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "xfun": {
+      "Package": "xfun",
+      "Version": "0.60",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "xtable": {
+      "Package": "xtable",
+      "Version": "1.8-8",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "yaml": {
+      "Package": "yaml",
+      "Version": "2.3.12",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    },
+    "zoo": {
+      "Package": "zoo",
+      "Version": "1.9-0",
+      "Source": "Repository",
+      "Repository": "CRAN"
+    }
+  }
+}

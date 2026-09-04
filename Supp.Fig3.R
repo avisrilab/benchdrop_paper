@@ -1,264 +1,31 @@
-# Supp Figure 3
+# Supp. Figure 3: panels S3A-S3E. Inputs: read.lens.pbmc.txt, SR/LR.PBMC.S3.rds, quant.sf, t2gnames.txt
+script.dir <- dirname(sub("--file=", "", grep("--file=", commandArgs(), value = TRUE)))
+source(file.path(if (length(script.dir)) script.dir else ".", "utils.R"))
+library(patchwork)
 
-# Load packages
-library(Seurat)
-library(Matrix)
-library(ggplot2)
-library(viridis)
-library(dplyr)
+#### S3A: long-read length distribution ####
+save.panel(read.length.density("read.lens.pbmc.txt", "SuppFig3A"), "SuppFig3A", width = 8, height = 5)
 
-#### SUPP FIG. 2B ####
-# Load data
-lr.pbmc <- readRDS("LR.PBMC.S3.rds")
-
-# Format metadata
-lr.pbmc$sample <- "BenchDrop-seq"
-tx.meta <- lr.pbmc@meta.data %>%
-  dplyr::select(
-    nCount_RNA,
-    nFeature_RNA,
-    nFeature_transcript,
-    sample
-  )
-
-# Number of UMIs per cell
-umis.per.cell <- ggplot(
-  tx.meta,
-  aes(x = sample, y = nCount_RNA, fill = sample)
-) +
-  geom_violin(scale = "width", trim = TRUE) +
-  # scale_y_log10() +
-  theme_minimal(base_size = 25) +
-  scale_fill_manual(values = c("BenchDrop-seq" = "#F8766D")) +
-  labs(
-    x = NULL,
-    y = "UMIs per cell",
-    title = "UMIs per Cell"
-  ) +
-  theme(
-    legend.position = "none",
-    panel.grid = element_blank(),
-    plot.title = element_text(size = 25, face = "bold", hjust = 0.5),
-    axis.text = element_text(size = 20)
-  )
-
-# Number of genes per cell
-genes.per.cell <- ggplot(
-  tx.meta,
-  aes(x = sample, y = nFeature_RNA, fill = sample)
-) +
-  geom_violin(scale = "width", trim = TRUE) +
-  # scale_y_log10() +
-  theme_minimal(base_size = 25) +
-  scale_fill_manual(values = c("BenchDrop-seq" = "#00BFC4")) +
-  labs(
-    x = NULL,
-    y = "Genes per cell",
-    title = "Genes per Cell"
-  ) +
-  theme(
-    legend.position = "none",
-    panel.grid = element_blank(),
-    plot.title = element_text(size = 25, face = "bold", hjust = 0.5),
-    axis.text = element_text(size = 20)
-  )
-
-# Number of transcripts per cell
-txs.per.cell <- ggplot(
-  tx.meta,
-  aes(x = sample, y = nFeature_transcript, fill = sample)
-) +
-  geom_violin(scale = "width", trim = TRUE) +
-  # scale_y_log10() +
-  theme_minimal(base_size = 25) +
-  scale_fill_manual(values = c("BenchDrop-seq" = "gray")) +
-  labs(
-    x = NULL,
-    y = "Transcripts per cell",
-    title = "Transcripts per Cell"
-  ) +
-  theme(
-    legend.position = "none",
-    panel.grid = element_blank(),
-    plot.title = element_text(size = 25, face = "bold", hjust = 0.5),
-    axis.text = element_text(size = 20)
-  )
-
-# Plot
-umis.per.cell + genes.per.cell + txs.per.cell
-
-
-
-#### SUPP FIG. 2C ####
-# Load data
-sr.pbmc <- readRDS("SR.PBMC.S3.rds")
-
-# Load bulk data
-bulk.tx.quants <- read.table("quant.sf", header = TRUE, sep = "\t", stringsAsFactors = FALSE)
-
-# Extract columns of interest
-bulk.tx.quants <- bulk.tx.quants %>% dplyr::select(transcript.id = Name, TPM)
-bulk.tx.quants <- setNames(bulk.tx.quants$TPM, bulk.tx.quants$transcript.id)
-
-# Transcript to gene mapping
-t2g <- read.delim("t2gnames.txt", header = FALSE, stringsAsFactors = FALSE)
-colnames(t2g) <- c("transcript.id", "gene.name")
-
-# Align names
-t2g.sub <- t2g[t2g$transcript.id %in% names(bulk.tx.quants), ]
-
-# Aggregate bulk transcript TPM counts to bulk gene TPM counts
-bulk.gene.quants <- tapply(bulk.tx.quants[t2g.sub$transcript.id], t2g.sub$gene.name, sum)
-
-# Access SR gene matrix
-sr.gene.mat <- GetAssayData(sr.pbmc, assay = "RNA", layer = "data")
-
-# Compute pseudobulk gene counts 
-sr.gene.rowsums <- rowSums(sr.gene.mat)
-sr.gene.bulk <- sr.gene.rowsums*1e6 / sum(sr.gene.rowsums)
-
-# Union
-all.genes <- union(names(sr.gene.bulk), names(bulk.gene.quants))
-sr.gene.bulk.full <- setNames(numeric(length(all.genes)), all.genes)
-bulk.gene.quants.full <- setNames(numeric(length(all.genes)), all.genes)
-sr.gene.bulk.full[names(sr.gene.bulk)] <- sr.gene.bulk
-bulk.gene.quants.full[names(bulk.gene.quants)] <- bulk.gene.quants
-sr.gene.bulk <- sr.gene.bulk.full
-bulk.gene.quants <- bulk.gene.quants.full
-
-# Compute correlations
-pearson.cor <- cor(sr.gene.bulk, bulk.gene.quants, method = "pearson")
-spearman.cor <- cor(sr.gene.bulk, bulk.gene.quants, method = "spearman")
-
-# DF for plotting
-df.cor <- data.frame(Short = log1p(sr.gene.bulk), Bulk = log1p(bulk.gene.quants))
-
-# Plot
-p <- ggplot(df.cor, aes(x = Bulk, y = Short)) +
-  geom_hex(bins = 100) +
-  scale_fill_viridis_c(option = "plasma", trans = "log10") + 
-  labs(x = "Bulk", 
-       y = "Short", 
-       fill = "Density") +
-  theme_minimal(base_size = 25) +
-  theme(axis.line = element_line(color = "black", linewidth = 0.8),
-        panel.grid = element_blank())
-
-p + annotate("text", 
-             x = min(df.cor$Short, na.rm = TRUE), 
-             y = max((df.cor$Short + 1), na.rm = TRUE), 
-             hjust = 0, vjust = 1, size = 6,
-             label = paste0("Spearman = ", round(spearman.cor, 3)))
-
-
-
-#### SUPP FIG. 2D ####
-# Load data
-lr.pbmc <- readRDS("LR.PBMC.S3.rds")
-
-# Load bulk data
-bulk.tx.quants <- read.table("quant.sf", header = TRUE, sep = "\t", stringsAsFactors = FALSE)
-
-# Extract columns of interest
-bulk.tx.quants <- bulk.tx.quants %>% dplyr::select(transcript.id = Name, TPM)
-bulk.tx.quants <- setNames(bulk.tx.quants$TPM, bulk.tx.quants$transcript.id)
-
-# Read in transcript to gene mapping
-t2g <- read.delim("t2gnames.txt", header = FALSE, stringsAsFactors = FALSE)
-colnames(t2g) <- c("transcript.id", "gene.name")
-
-# Align names
-t2g.sub <- t2g[t2g$transcript.id %in% names(bulk.tx.quants), ]
-
-# Aggregate bulk transcript TPM counts to bulk gene TPM counts
-bulk.gene.quants <- tapply(bulk.tx.quants[t2g.sub$transcript.id], t2g.sub$gene.name, sum)
-
-# Access SR gene matrix
-lr.gene.mat <- GetAssayData(lr.pbmc, assay = "RNA", layer = "data")
-
-# Compute pseudobulk gene counts 
-lr.gene.rowsums <- rowSums(lr.gene.mat)
-lr.gene.bulk <- lr.gene.rowsums*1e6 / sum(lr.gene.rowsums)
-
-# Union
-all.genes <- union(names(lr.gene.bulk), names(bulk.gene.quants))
-lr.gene.bulk.full <- setNames(numeric(length(all.genes)), all.genes)
-bulk.gene.quants.full <- setNames(numeric(length(all.genes)), all.genes)
-lr.gene.bulk.full[names(lr.gene.bulk)] <- lr.gene.bulk
-bulk.gene.quants.full[names(bulk.gene.quants)] <- bulk.gene.quants
-lr.gene.bulk <- lr.gene.bulk.full
-bulk.gene.quants <- bulk.gene.quants.full
-
-# Compute correlations
-pearson.cor <- cor(lr.gene.bulk, bulk.gene.quants, method = "pearson")
-spearman.cor <- cor(lr.gene.bulk, bulk.gene.quants, method = "spearman")
-
-# DF for plotting
-df.cor <- data.frame(`BenchDrop-seq` = log1p(lr.gene.bulk), Bulk = log1p(bulk.gene.quants), check.names = FALSE)
-
-# Plot
-p <- ggplot(df.cor, aes(x = Bulk, y = `BenchDrop-seq`)) +
-  geom_hex(bins = 100) +
-  scale_fill_viridis_c(option = "plasma", trans = "log10") + 
-  labs(x = "Bulk", 
-       y = "BenchDrop-seq", 
-       fill = "Density") +
-  theme_minimal(base_size = 25) +
-  theme(axis.line = element_line(color = "black", linewidth = 0.8),
-        panel.grid = element_blank())
-
-p + annotate("text", 
-             x = min(df.cor$`BenchDrop-seq`, na.rm = TRUE), 
-             y = max((df.cor$`BenchDrop-seq` + 1), na.rm = TRUE), 
-             hjust = 0, vjust = 1, size = 6,
-             label = paste0("Spearman = ", round(spearman.cor, 3)))
-
-
-
-#### SUPP FIG. 2E ####
-# Load data
 sr.pbmc <- readRDS("SR.PBMC.S3.rds")
 lr.pbmc <- readRDS("LR.PBMC.S3.rds")
+t2g <- read.t2g("t2gnames.txt")
 
-# Access SR gene matrix
-sr.gene.mat <- GetAssayData(sr.pbmc, assay = "RNA", layer = "data")
+#### S3B: UMIs, genes and transcripts per cell ####
+violin <- function(y, ylab, fill) {
+  ggplot(lr.pbmc@meta.data, aes(x = "BenchDrop-seq", y = .data[[y]])) +
+    geom_violin(scale = "width", trim = TRUE, fill = fill) +
+    theme_minimal(base_size = 25) +
+    labs(x = NULL, y = ylab) +
+    theme(panel.grid = element_blank(), axis.text = element_text(size = 20))
+}
+save.panel(violin("nCount_RNA", "UMIs per cell", "#F8766D") +
+             violin("nFeature_RNA", "Genes per cell", "#00BFC4") +
+             violin("nFeature_transcript", "Transcripts per cell", "gray"),
+           "SuppFig3B", width = 14, height = 6)
 
-# Access LR gene matrix
-lr.gene.mat <- GetAssayData(lr.pbmc, assay = "RNA", layer = "data")
-
-# Pseudobulk each matrix
-sr.gene.bulk <- rowSums(sr.gene.mat) 
-lr.gene.bulk <- rowSums(lr.gene.mat)
-
-# Union
-all.genes <- union(names(sr.gene.bulk), names(lr.gene.bulk))
-sr.gene.bulk.full <- setNames(numeric(length(all.genes)), all.genes)
-lr.gene.bulk.full <- setNames(numeric(length(all.genes)), all.genes)
-sr.gene.bulk.full[names(sr.gene.bulk)] <- sr.gene.bulk
-lr.gene.bulk.full[names(lr.gene.bulk)] <- lr.gene.bulk
-sr.gene.bulk <- sr.gene.bulk.full
-lr.gene.bulk <- lr.gene.bulk.full
-
-# Compute correlations
-pearson.cor <- cor(sr.gene.bulk, lr.gene.bulk, method = "pearson")
-spearman.cor <- cor(sr.gene.bulk, lr.gene.bulk, method = "spearman")
-
-# DF for plotting
-df.cor <- data.frame(Short = log1p(sr.gene.bulk), `BenchDrop-seq` = log1p(lr.gene.bulk), check.names = FALSE)
-
-# Plot
-p <- ggplot(df.cor, aes(x = Short, y = `BenchDrop-seq`)) +
-  geom_hex(bins = 100) +
-  scale_fill_viridis_c(option = "plasma", trans = "log10") + 
-  labs(x = "Short", 
-       y = "BenchDrop-seq",
-       fill = "Density") +
-  theme_minimal(base_size = 18) +
-  theme(axis.line = element_line(color = "black", linewidth = 0.8),
-        panel.grid = element_blank())
-
-p + annotate("text", 
-             x = min(df.cor$`BenchDrop-seq`, na.rm = TRUE), 
-             y = max((df.cor$`BenchDrop-seq` + 1), na.rm = TRUE), 
-             hjust = 0, vjust = 1, size = 6,
-             label = paste0("Spearman = ", round(spearman.cor, 3)))
+#### S3C-S3E: pseudobulk correlations ####
+bulk <- bulk.gene.tpm("quant.sf", t2g)
+save.panel(cor.hex(bulk, pseudobulk(lr.pbmc, cpm = TRUE), "Bulk", "BenchDrop-seq", "SuppFig3C"), "SuppFig3C")
+save.panel(cor.hex(bulk, pseudobulk(sr.pbmc, cpm = TRUE), "Bulk", "Short", "SuppFig3D"), "SuppFig3D")
+save.panel(cor.hex(pseudobulk(sr.pbmc), pseudobulk(lr.pbmc), "Short", "BenchDrop-seq", "SuppFig3E", base.size = 18),
+           "SuppFig3E")
