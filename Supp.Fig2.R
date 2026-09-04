@@ -15,7 +15,7 @@ read.quant <- function(mtx, cells, features) {
   m[, intersect(colnames(m), colnames(lr.k562))]
 }
 
-alevin <- read.quant("alevin/quants_mat.mtx.gz", "alevin/quants_mat_rows.txt", "alevin/quants_mat_cols.txt")
+alevin <- read.quant("alevin/quants_mat.mtx", "alevin/quants_mat_rows.txt", "alevin/quants_mat_cols.txt")
 save.panel(cor.hex(rowSums(alevin), lr.pb, "Salmon-Alevin", "BenchDrop-seq", "SuppFig2D"), "SuppFig2D")
 
 kb <- read.quant("kb/cells_x_genes.mtx", "kb/cells_x_genes.barcodes.txt", "kb/cells_x_genes.genes.names.txt")

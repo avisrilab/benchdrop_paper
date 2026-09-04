@@ -22,7 +22,9 @@ df$lfc <- log10((df$long + 1) / (df$bulk + 1))
 
 radius <- 0.25
 plotted <- df[sqrt(df$lfc^2 + df$mfc^2) > radius, ]
-message(sprintf("SuppFig4A: N_total = %d transcripts, N_removed = %d transcripts", nrow(df), nrow(df) - nrow(plotted)))
+n.total <- nrow(plotted)
+n.removed <- nrow(df) - nrow(plotted)
+message(sprintf("SuppFig4A: N_total = %d transcripts, N_removed = %d transcripts", n.total, n.removed))
 
 p <- ggplot(plotted, aes(x = mfc, y = lfc)) +
   geom_point() +
@@ -30,7 +32,7 @@ p <- ggplot(plotted, aes(x = mfc, y = lfc)) +
   scale_fill_viridis_c(option = "plasma", trans = "log10", name = "count") +
   labs(x = "Log2FC_1", y = "Log2FC_2") +
   annotate("label", x = 0.5, y = -4, hjust = 0, size = 5, fontface = "bold",
-           label = sprintf("N_total = %d transcripts\nN_removed = %d transcripts", nrow(df), nrow(df) - nrow(plotted))) +
+           label = sprintf("N_total = %d transcripts\nN_removed = %d transcripts", n.total, n.removed)) +
   theme_minimal()
 top <- ggplot(plotted, aes(mfc)) + geom_density(fill = "#D5722A", color = "black") + theme_void()
 right <- ggplot(plotted, aes(lfc)) + geom_density(fill = "#5C1A8A", color = "black") + coord_flip() + theme_void()
