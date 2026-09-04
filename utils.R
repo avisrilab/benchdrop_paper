@@ -1,4 +1,4 @@
-# Helpers shared by the figure scripts. Run scripts from the input directory; output goes to figures/.
+# Helpers shared by the figure scripts. Run from input/ (e.g. `Rscript ../Fig2.R`); PDFs go to figures/.
 suppressPackageStartupMessages({
   library(Seurat)
   library(Matrix)
@@ -6,7 +6,7 @@ suppressPackageStartupMessages({
   library(dplyr)
 })
 
-out.dir <- "figures"
+out.dir <- file.path(if (exists("script.dir") && length(script.dir)) script.dir else "..", "figures")
 dir.create(out.dir, showWarnings = FALSE)
 
 save.panel <- function(p, name, width = 7, height = 6) {

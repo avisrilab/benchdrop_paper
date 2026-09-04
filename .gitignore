@@ -1,5 +1,5 @@
-# Input data and generated figures are not tracked
-data/
+# Inputs and generated figures are not tracked
+input/
 figures/
 *.rds
 *.bam

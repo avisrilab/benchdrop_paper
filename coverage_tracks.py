@@ -25,10 +25,11 @@ BAMS = {
 }
 
 human = Configuration(genome_fasta="genome.fa", gtf_annotation="genes.gtf", bed_annotation=["genes.bed.gz"])
-Path("figures").mkdir(exist_ok=True)
+OUT = Path(__file__).resolve().parent / "figures"
+OUT.mkdir(exist_ok=True)
 
 for gene in sys.argv[1:] or PANELS:
     dataset, options = PANELS[gene]
     plot = human.plot_feature(gene, bams_dict=BAMS[dataset], tighter_track=True,
                               **{"add_track_label": gene, **options})
-    save(plot, f"figures/coverage_{gene}.svg")
+    save(plot, str(OUT / f"coverage_{gene}.svg"))

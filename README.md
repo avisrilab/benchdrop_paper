@@ -26,7 +26,7 @@ times reported in Methods 2.4.
 
 ## Inputs
 
-Run every script from a directory containing the files it lists in its header. The Seurat objects are
+Place the files below in `input/` (git-ignored) and run every script from there. The Seurat objects are
 those built for the paper (Seurat v5, Azimuth PBMC reference 2.10); the remaining files are Bagpiper,
 PIPseeker, salmon or kallisto-bustools outputs and the GENCODE v32 annotation.
 
@@ -47,9 +47,9 @@ PIPseeker, salmon or kallisto-bustools outputs and the GENCODE v32 annotation.
 ## Running
 
 ```
-cd /path/to/inputs
-Rscript /path/to/benchdrop_paper/Fig2.R      # writes figures/Fig2B.pdf, Fig2C.pdf, ...
-python /path/to/benchdrop_paper/coverage_tracks.py
+cd input
+Rscript ../Fig2.R                 # writes ../figures/Fig2B.pdf, Fig2C.pdf, ...
+python ../coverage_tracks.py
 ```
 
 Each script prints the numbers quoted in the paper (cell counts, Spearman correlations, N_total and
