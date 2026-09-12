@@ -6,7 +6,9 @@ numbers follow the revised manuscript.
 
 Raw and processed BenchDrop-seq short-read and long-read data: GEO accession GSE318099.
 Bulk PBMC RNA-seq used for benchmarking: ENCODE SRX2370564. Bulk K562 RNA-seq: ENCODE (accession
-given in the manuscript's Availability section).
+given in the manuscript's Availability section). ENCODE sorted immune-population bulk RNA-seq used
+for the isoform-usage silver standard (B cells, ENCFF795CTQ/ENCFF959BDM; T cells, ENCFF970FKA;
+NK cells, ENCFF738YZJ; monocytes, ENCFF774DLJ/ENCFF831SVM).
 Long reads were processed with Bagpiper v0.1.0 (https://github.com/avisrilab/bagpiper).
 
 ## Scripts
@@ -30,9 +32,8 @@ Long reads were processed with Bagpiper v0.1.0 (https://github.com/avisrilab/bag
 | `utils.R` | helpers shared by the R scripts |
 
 Figures 1, 2A, S1A and S1B are illustrations. S1C (pipeline runtime) is a bar chart of the wall-clock
-times reported in Methods 2.4. 2D, 3D, S1C, S2B, S2C and S2E ship as the published renders. Fig. 3F
-re-runs FindAllMarkers, whose gene set depends on the Seurat version; the published gene list is
-Supplementary Table 1.
+times reported in Methods 2.4. 2D, 3D, S1C, S2B, S2C and S2E ship as the published renders. The
+Fig. 3F marker genes are listed in Supplementary Table 1.
 
 Other analyses reported in the text live in `misc/`: `error_control.py` (same-length error control,
 Methods 2.5), `floor_dtu.py` (which PBMC genes clear the coverage criterion), `auprc_bulk.py` and

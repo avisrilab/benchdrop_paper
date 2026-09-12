@@ -87,19 +87,23 @@ save.panel(LabelClusters(p, id = "celltype.grouped", fontface = "bold", size = 5
 #### 3F: marker-gene dot plot ####
 lr.pbmc$celltype.grouped <- group.celltypes(lr.pbmc$predicted.celltype.l2, fine = TRUE)
 lr.pbmc <- subset(lr.pbmc, !is.na(celltype.grouped))
+row.order <- c("CD16 Mono", "CD4 T Cells", "B Cells", "CD8 T Cells", "MAIT", "Platelet", "CD14 Mono", "Plasmablast", "pDC", "NK", "HSPC", "Treg", "DC", "Erythroid", "CD4 Proliferating")
+row.label <- c("CD16 Mono", "CD4 T cells", "B Cells", "CD8 T cells", "MAIT", "Platelet", "CD14 Mono", "Plasmablast", "pDC", "NK", "HSPC", "Treg", "DC", "Eryth", "CD4 Proliferating")
+lr.pbmc$celltype.grouped <- factor(lr.pbmc$celltype.grouped, levels = row.order, labels = row.label)
 Idents(lr.pbmc) <- "celltype.grouped"
 markers <- FindAllMarkers(lr.pbmc, assay = "RNA", only.pos = TRUE) %>%
   mutate(spec.score = avg_log2FC * (pct.1 - pct.2)) %>%
   filter(avg_log2FC > 0.4, pct.1 > 0.25, pct.2 < 0.15) %>%
   arrange(cluster, desc(spec.score))
 top3 <- c()
-for (cl in unique(markers$cluster)) {
+for (cl in row.label) {
   top3 <- c(top3, head(setdiff(markers$gene[markers$cluster == cl], top3), 3))
 }
 message("Fig3F markers: ", paste(top3, collapse = ", "))
 lr.pbmc <- ScaleData(lr.pbmc, features = top3, assay = "RNA")
 p <- DotPlot(lr.pbmc, features = top3, assay = "RNA", dot.scale = 10) +
   scale_color_viridis_c(option = "plasma", direction = -1) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 14),
+  theme(axis.title = element_blank(),
+        axis.text.x = element_text(angle = 45, hjust = 1, size = 14),
         plot.margin = unit(c(1, 1, 1, 2), "cm"))
 save.panel(p, "Fig3F", width = 16, height = 7)
