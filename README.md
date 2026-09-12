@@ -82,6 +82,10 @@ python ../misc/coverage_tracks.py
 $BENCHDROP_PYTHON ../Fig6.py
 ```
 
+`Fig4.py` draws from the outputs of three other runs and goes last: the simulation
+(`staircase/run_depth_sweep.sh 1 2 4 8 16 32`), the read-geometry stages of `Fig6.py`, and
+`misc/floor_dtu.py`.
+
 Each R script prints the numbers quoted in the paper (cell counts, Spearman correlations, N_total and
 N_removed, read-length statistics) to the console.
 
