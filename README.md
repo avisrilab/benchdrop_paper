@@ -5,9 +5,9 @@ single-cell long-read RNA sequencing* (bioRxiv, doi:10.64898/2026.03.12.706999).
 numbers follow the revised manuscript.
 
 Raw and processed BenchDrop-seq short-read and long-read data: GEO accession GSE318099.
-Bulk PBMC RNA-seq used for benchmarking: ENCODE SRX2370564. Bulk K562 RNA-seq: ENCODE (accession
-given in the manuscript's Availability section). ENCODE sorted immune-population bulk RNA-seq used
-for the isoform-usage silver standard (B cells, ENCFF795CTQ/ENCFF959BDM; T cells, ENCFF970FKA;
+Bulk PBMC RNA-seq used for benchmarking: ENCODE SRX2370564. Bulk K562 RNA-seq: ENCODE
+ENCFF001RFF/ENCFF001RFE. ENCODE sorted immune-population bulk RNA-seq used for the isoform-usage
+silver standard (B cells, ENCFF795CTQ/ENCFF959BDM; T cells, ENCFF970FKA;
 NK cells, ENCFF738YZJ; monocytes, ENCFF774DLJ/ENCFF831SVM).
 Long reads were processed with Bagpiper v0.1.0 (https://github.com/avisrilab/bagpiper).
 
