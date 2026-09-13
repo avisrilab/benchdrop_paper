@@ -39,8 +39,8 @@ Other analyses reported in the text live in `misc/`: `error_control.py` (same-le
 Methods 2.5; needs the staircase template, error profile and index, NanoSim, and Bagpiper's
 whitelist), `floor_dtu.py` (which PBMC genes clear the coverage criterion), `auprc_bulk.py` and
 `auprc_sweep.py` (matched-bulk isoform-switch detection and its threshold sweep, Methods 2.6),
-`bcr_feasibility.py` (per-cell immunoglobulin chain calls, Methods 2.7), `barcode_collision.py`
-(barcode collision bound, Methods 2.1), `phasing_coverage_profile.py` (read geometry, the 382 bp
+`bcr_feasibility.py` (the light-chain exclusion and IgM-form checks on B cells, Methods 2.7; needs
+the labels `transfer_labels.R` writes), `phasing_coverage_profile.py` (read geometry, the 382 bp
 window, Methods 2.5), `export_reference.py` and `transfer_labels.R` (Azimuth PBMC label transfer
 onto the short-read matrix, Methods 2.8), and `azimuth_labels.py`, which `Fig6.py` calls.
 
