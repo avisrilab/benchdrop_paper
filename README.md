@@ -28,6 +28,7 @@ Long reads were processed with Bagpiper v0.1.0 (https://github.com/avisrilab/bag
 | `Supp.Fig5.R` | S5A-S5G |
 | `Supp.Fig7.py` | S7 (cell hashing, Methods 1.6) |
 | `Supp.Fig8.py` | S8 (Scrublet doublets, Methods 2.1) |
+| `Supp.Fig9.py` | S9 (matched-bulk isoform-switch detection and its threshold sweep, Methods 2.6) |
 | `misc/coverage_tracks.py` | the genome-browser track renderer behind 2D, 3D, S2B and S2C |
 | `utils.R` | helpers shared by the R scripts |
 
@@ -37,8 +38,7 @@ Fig. 3F marker genes are listed in Supplementary Table 1.
 
 Other analyses reported in the text live in `misc/`: `error_control.py` (same-length error control,
 Methods 2.5; needs the staircase template, error profile and index, NanoSim, and Bagpiper's
-whitelist), `floor_dtu.py` (which PBMC genes clear the coverage criterion), `auprc_bulk.py` and
-`auprc_sweep.py` (matched-bulk isoform-switch detection and its threshold sweep, Methods 2.6),
+whitelist), `floor_dtu.py` (which PBMC genes clear the coverage criterion),
 `bcr_feasibility.py` (the light-chain exclusion and IgM-form checks on B cells, Methods 2.7; needs
 the labels `transfer_labels.R` writes), `phasing_coverage_profile.py` (read geometry, the 382 bp
 window, Methods 2.5), `export_reference.py` and `transfer_labels.R` (Azimuth PBMC label transfer
@@ -68,7 +68,7 @@ Python analyses: paths come from environment variables. `BENCHDROP_FEED` is the 
 and K562 long-read matrices and reads from GSE318099, the GENCODE v32 genome and annotation, the
 hashing libraries, the isonome reads SRR37807425 and the PIP-seq v4 barcode whitelist, the ENCODE
 quantifications, the Azimuth PBMC reference, `pbmc/pbmc_celltypes.tsv`, the barcode-to-lineage table
-the matched-bulk scripts read, and `pbmc/paper_cells_meta.tsv`, the paper's 19,031 PBMC barcodes
+`Fig6.py` and `Supp.Fig9.py` read, and `pbmc/paper_cells_meta.tsv`, the paper's 19,031 PBMC barcodes
 with their Azimuth labels, exported from `LR.PBMC.S3.rds`); `BENCHDROP_RESULTS` is where outputs go;
 `BENCHDROP_REPO` is this directory; `BAGPIPER_BIN` and `BAGPIPER_DIR` point at Bagpiper;
 `BENCHDROP_READS_BIN` is a bin directory with minimap2, samtools and a Python with pysam;
