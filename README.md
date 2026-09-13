@@ -66,10 +66,10 @@ files are Bagpiper, PIPseeker, salmon or kallisto-bustools outputs and the GENCO
 
 Python analyses: paths come from environment variables. `BENCHDROP_FEED` is the data root (the PBMC
 and K562 long-read matrices and reads from GSE318099, the GENCODE v32 genome and annotation, the
-hashing libraries, the isonome reads SRR37807425, the ENCODE quantifications, the Azimuth PBMC
-reference, `pbmc/pbmc_celltypes.tsv`, the barcode-to-lineage table the matched-bulk scripts read,
-and `pbmc/paper_cells_meta.tsv`, the paper's 19,031 PBMC barcodes with their Azimuth labels,
-exported from `LR.PBMC.S3.rds`); `BENCHDROP_RESULTS` and `BENCHDROP_SILO` are where outputs go;
+hashing libraries, the isonome reads SRR37807425 and the PIP-seq v4 barcode whitelist, the ENCODE
+quantifications, the Azimuth PBMC reference, `pbmc/pbmc_celltypes.tsv`, the barcode-to-lineage table
+the matched-bulk scripts read, and `pbmc/paper_cells_meta.tsv`, the paper's 19,031 PBMC barcodes
+with their Azimuth labels, exported from `LR.PBMC.S3.rds`); `BENCHDROP_RESULTS` is where outputs go;
 `BENCHDROP_REPO` is this directory; `BAGPIPER_BIN` and `BAGPIPER_DIR` point at Bagpiper;
 `BENCHDROP_READS_BIN` is a bin directory with minimap2, samtools and a Python with pysam;
 `BENCHDROP_PYTHON` is a Python with the scanpy stack; `NANOSIM_DIR` is a NanoSim checkout. Each
@@ -94,16 +94,18 @@ N_removed, read-length statistics) to the console.
 
 ## Environment
 
-`renv.lock` records R 4.6.1, Bioconductor 3.23 and the exact version of every R package the scripts load
-(Seurat 5.5.1, Signac 1.17.1, ggplot2 4.0.3, Matrix 1.7-5, ...) together with their dependencies.
-Recreate the library with:
+`renv.lock` records R 4.6.1, Bioconductor 3.23 and the exact version of every R package the scripts
+load (Seurat 5.5.1, Signac 1.17.1, ggplot2 4.0.3, Matrix 1.7-5, ...) together with their
+dependencies. Recreate the library with:
 
 ```
 Rscript -e 'install.packages("renv"); renv::restore(lockfile = "renv.lock")'
 ```
 
 `Matrix.utils` is no longer on CRAN; renv installs it from the CRAN archive.
-Python: integrative_transcriptomics_viewer (for `misc/coverage_tracks.py` only). The Python analyses ran
-under Python 3.11 with scanpy 1.10.4, anndata 0.10.9, pandas 2.2.3, numpy 1.26.4, matplotlib 3.11.0,
-pysam 0.22.1, minimap2 2.31, samtools 1.21 and NanoSim 3.2.3; the benchmark used IsoQuant 3.10.0 and
-bambu 3.14.0 (its renv lock is `Table1/bambu_renv/renv.lock`).
+Python: integrative_transcriptomics_viewer (for `misc/coverage_tracks.py` only). The Python analyses
+ran under Python 3.11 with scanpy 1.10.4, anndata 0.10.9, pandas 2.2.3, numpy 1.26.4, matplotlib
+3.11.0, pysam 0.22.1, minimap2 2.31, samtools 1.21 and NanoSim 3.2.3; the benchmark used IsoQuant
+3.10.0 and bambu 3.14.0 (restore its library with `Rscript -e 'renv::restore()'` inside
+`Table1/bambu_renv/`). The benchmark's timing wrapper is macOS `/usr/bin/time -l`, so its wall-clock
+and peak-memory rows reproduce on macOS as run.
