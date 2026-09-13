@@ -19,7 +19,7 @@ Long reads were processed with Bagpiper v0.1.0 (https://github.com/avisrilab/bag
 | `Fig3.R` | 3A, 3B, 3C, 3E, 3F |
 | `Fig4.py`, `staircase/` | 4A-4D, S6 (simulation and the coverage criterion, Methods 2.5) |
 | `Fig5.R` | 5A-5F |
-| `Fig6.py` | 6A-6D, Supplementary Table 3 (Methods 2.8) |
+| `Fig6.py` | 6A-6D, Supplementary Table 3 as `Supp.Table3.tsv` (Methods 2.8) |
 | `Table1/` | Table 1, Supplementary Table 2 (Methods 2.9) |
 | `Table2.py` | Table 2 (Methods 1.5) |
 | `Supp.Fig2.R` | S2A, S2D, S2E |
@@ -66,8 +66,9 @@ files are Bagpiper, PIPseeker, salmon or kallisto-bustools outputs and the GENCO
 Python analyses: paths come from environment variables. `BENCHDROP_FEED` is the data root (the
 PBMC and K562 long-read matrices and reads from GSE318099, the GENCODE v32 genome and annotation,
 the hashing libraries, the isonome reads SRR37807425, the ENCODE quantifications, the Azimuth PBMC
-reference, and `pbmc/pbmc_celltypes.tsv`, the barcode-to-lineage table the matched-bulk scripts
-read); `BENCHDROP_RESULTS` and `BENCHDROP_SILO` are where outputs go; `BENCHDROP_REPO` is this
+reference, `pbmc/pbmc_celltypes.tsv`, the barcode-to-lineage table the matched-bulk scripts read,
+and `pbmc/paper_cells_meta.tsv`, the paper's 19,031 PBMC barcodes with their Azimuth labels,
+exported from `LR.PBMC.S3.rds`); `BENCHDROP_RESULTS` and `BENCHDROP_SILO` are where outputs go; `BENCHDROP_REPO` is this
 directory; `BAGPIPER_BIN` and `BAGPIPER_DIR` point at Bagpiper; `BENCHDROP_READS_BIN` is a bin
 directory with minimap2, samtools and a Python with pysam; `BENCHDROP_PYTHON` is a Python with
 the scanpy stack; `NANOSIM_DIR` is a NanoSim checkout. Each Python analysis is one file: parameters
