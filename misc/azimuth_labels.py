@@ -1,4 +1,4 @@
-"""Cell labels for the PBMC pseudotime vignette, transferred from the Azimuth PBMC reference
+"""Cell labels for the PBMC pseudotime analysis (Fig6.py), transferred from the Azimuth PBMC reference
 (Methods 2.8).
 """
 from __future__ import annotations
@@ -11,7 +11,7 @@ import numpy as np
 import scipy.io as sio
 import scipy.sparse as sp
 
-REF = Path(os.path.expandvars("$BENCHDROP_FEED/azimuth_pbmc/pbmc_multimodal.h5seurat"))  # 2026-08-14: references/ layer removed
+REF = Path(os.path.expandvars("$BENCHDROP_FEED/azimuth_pbmc/pbmc_multimodal.h5seurat"))
 SR = Path(os.path.expandvars("$BENCHDROP_FEED/pbmc/count_sr/Gene/filtered"))
 OUT = Path(os.path.expandvars("$BENCHDROP_RESULTS/pseudotime"))
 
@@ -26,7 +26,7 @@ def _decode(arr):
 def read_reference(path: Path = REF) -> dict:
     """Pull labels and the SPCA loadings/embeddings from the h5seurat.
 
-    ORIENTATION, verified against the file 2026-08-13 rather than assumed: h5seurat keeps R's
+    ORIENTATION, verified against the file: h5seurat keeps R's
     column-major layout, so `cell.embeddings` reads as (50 PCs, 161,764 cells) and
     `feature.loadings` as (50 PCs, 5,000 features). Both are transposed here to the
     rows-are-observations convention the rest of this module uses.
@@ -103,7 +103,7 @@ def transfer(ref: dict, X, genes, k: int = K_NEIGHBOURS):
     return np.array(labs_l1, dtype=object), np.array(labs_l2, dtype=object), np.array(votes)
 
 
-# Azimuth l1 -> the vignette's coarse vocabulary, for the A1 concordance bar.
+# Azimuth l1 -> the coarse lineage vocabulary (b_cell, t_cell, nk, mono).
 L1_TO_COARSE = {"CD4 T": "t_cell", "CD8 T": "t_cell", "other T": "t_cell",
                 "B": "b_cell", "NK": "nk", "Mono": "mono"}
 
