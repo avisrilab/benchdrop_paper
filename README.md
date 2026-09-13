@@ -21,7 +21,7 @@ Long reads were processed with Bagpiper v0.1.0 (https://github.com/avisrilab/bag
 | `Fig5.R` | 5A-5F |
 | `Fig6.py` | 6A-6D, Supplementary Table 3 as `Supp.Table3.tsv` (Methods 2.8) |
 | `Table1/` | Table 1, Supplementary Table 2 (Methods 2.9) |
-| `Table2.py` | Table 2 (Methods 1.5) |
+| `Table2.py` | Table 2 (Methods 1.5); the 2,000-cell row needs the unpublished PIP-seq T2 kit and library-reagent prices as inputs and prints FILL without them |
 | `Supp.Fig2.R` | S2A, S2D, S2E |
 | `Supp.Fig3.R` | S3A-S3E |
 | `Supp.Fig4.R` | S4A |
